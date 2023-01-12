@@ -1,10 +1,12 @@
+import { Provider } from 'react-redux';
 
-import './App.css';
+import store from './store/configureStore';
+import './scss/index.scss';
 
-function App() {
- return(
-  <div>Initial commit</div>
- )
-}
+const App = () => (
+  <Provider store={store}>
+    
+  </Provider>
+);
 
 export default App;
