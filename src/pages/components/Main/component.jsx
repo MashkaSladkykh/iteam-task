@@ -2,12 +2,16 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { selectGames } from '../../store/games/selectors';
-import { setGames} from '../../store/games/actions';
-import { generateApiSearchUrl } from '../utils';
-import { options } from '../utils';
-import { REACT_APP_API_KEY } from '../constants';
-import { mockData } from '../data';
+
+import Header from '../Header';
+
+import { selectGames } from '../../../store/games/selectors';
+import { setGames} from '../../../store/games/actions';
+import { generateApiSearchUrl } from '../../utils';
+import { options } from '../../utils';
+import { REACT_APP_API_KEY } from '../../constants';
+import { mockData } from '../../data'; //then replace mockData!!!!!!!!
+
 
 const Games = ({ gamesList, setGames }) => {
 //   useEffect(() => {
@@ -20,9 +24,11 @@ const Games = ({ gamesList, setGames }) => {
 //       .catch(err => console.log(err))
 //   }, []);
 
-    console.log(mockData)
+    console.log(mockData);
+        
   return (
    <>
+    <Header/>
     {mockData.length === 0 && (
             <div>Empty list</div>
           )}

@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import Games from '../pages/Main';
+import Games from '../pages/components/Main';
 
 const GameApp = () => {
   return (
