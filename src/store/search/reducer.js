@@ -2,7 +2,7 @@ import { REQUEST_APPS, RECEIVE_APPS } from './types';
 const initalState = {
   query: '',
   isFetching: false,
-  data: {},
+  data: [],
   error: ''
 }
 
