@@ -9,8 +9,8 @@ import { selectGames } from '../../../store/games/selectors';
 import { setGames} from '../../../store/games/actions';
 import { generateApiSearchUrl } from '../../utils';
 import { options } from '../../utils';
-import { REACT_APP_API_KEY } from '../../constants';
 import { mockData } from '../../data'; //then replace mockData!!!!!!!!
+import CardItem from './CardItem/component';
 
 
 const Games = ({ gamesList, setGames }) => {
@@ -29,19 +29,14 @@ const Games = ({ gamesList, setGames }) => {
   return (
    <>
     <Header/>
-    {mockData.length === 0 && (
+    {gamesList.length === 0 && (
             <div>Empty list</div>
           )}
-          {mockData.map(app => (
+          {gamesList.map(app => (
             <div key={app.appId} >
-              <NavLink to={`appId=${app.appId}`}>
-              <img src={app.imgUrl} alt={app.title}/>
-              </NavLink>
-              <p >{app.price}</p>
-              <NavLink to={`appId=${app.appId}`}>
-              <div>{app.title}</div>
-              </NavLink>
-              <div>{app.released}</div>
+              <CardItem
+              app={app}
+              />
             </div>
           
         ))}

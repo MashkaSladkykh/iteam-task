@@ -1,19 +1,33 @@
-import { NavLink } from 'react-router-dom';
-import { InputBase } from '@mui/material';
-import { Search } from '@mui/icons-material';
+import React from 'react';
+import { connect } from 'react-redux';
+import TextField from '@mui/material/TextField';
 
+import { getApps } from '../../../../store/search/actions';
 
-const Searching = () => {
-    const searchedValue = e=>console.log(e.target.value);
-    return (
-        <>
-            <InputBase
-            placeholder={'Search...'}
-            startAdornment={<Search />}
-            onChange={searchedValue}
-            />
-        </>
-    )
-};
+const Search = ({query, onInputChange}) => {
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+  }
+  return (
+    <form onSubmit={handleOnSubmit}>
+      <TextField 
+        value={query}
+        onChange={e => onInputChange(e.target.value)}
+      />
+    </form>
+  )
+}
 
-export default Searching;
+const mapStateToProps = state => {
+  return {
+    query: state.apps.query
+  }
+}
+const mapDispatchToProps = dispatch => ({
+    onInputChange: (query) => dispatch(getApps(query))
+  })
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Search);
