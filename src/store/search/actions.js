@@ -17,21 +17,21 @@ export const receiveApps = ({status, payload }) => ({
 export const getApps = (query) => {
   return function (dispatch) {
     dispatch(requestApps(query));
-    // fetch(generateApiSearchUrl(`${query}/page/1`), options)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     dispatch(receiveApps({
-    //       status:'success',
-    //       payload:data
-    //     }))
-    //   })
-    //   .catch(err => {
-    //     dispatch(receiveApps({
-    //       status:'error',
-    //       payload: err
-    //     }))
-    //     }
-    // )
+    fetch(generateApiSearchUrl(`${query}/page/1`), options)
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(receiveApps({
+          status:'success',
+          payload:data
+        }))
+      })
+      .catch(err => {
+        dispatch(receiveApps({
+          status:'error',
+          payload: err
+        }))
+        }
+    )
   }
 }
 
