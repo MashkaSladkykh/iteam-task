@@ -25,7 +25,7 @@ export const apps = (state = initialState, action) => {
     case FAVOURITE_ADDED:
       return {
         ...state,
-        favApps: [...state.favApps, action.payload]
+        favApps: [action.payload]
       };
 
     case FAVOURITE_REMOVED:

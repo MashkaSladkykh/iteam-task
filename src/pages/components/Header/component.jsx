@@ -17,7 +17,7 @@ const Header = () => {
                 <img src={logo} alt="logo" />
             </a>
             <NavLink to={'favList'}>         
-                <IconButton onClick={handleClick}>
+                <IconButton>
                     <FavoriteBorder  />
                 </IconButton>
             </NavLink>
