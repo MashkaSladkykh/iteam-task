@@ -1,0 +1,15 @@
+@import './variables.scss';
+
+.back {
+    text-decoration: none;
+    &_btn, button {
+        display: block;
+        margin-top: 20px;
+        background-color: $gray;
+        border-radius: 10px;
+        padding-right: 16px;
+        &:hover{
+            background-color: rgba(110, 107, 107, 0.557);
+        }
+    }
+}
