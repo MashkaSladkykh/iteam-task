@@ -5,12 +5,6 @@ import { NavLink } from 'react-router-dom';
 import logo from '../../../images/logo.svg';
 
 const Header = () => {
-    const handleClick = (e) => {
-        e.preventDefault();
-        // redirect to list of favorite
-        console.log('redirect to list of favorite')
-
-    }
     return (
         <>
              <a href="https://store.steampowered.com/">
@@ -20,8 +14,7 @@ const Header = () => {
                 <IconButton>
                     <FavoriteBorder  />
                 </IconButton>
-            </NavLink>
-            
+            </NavLink>           
         </>
     )
 };

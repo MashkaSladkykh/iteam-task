@@ -4,6 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 
 import { getApps } from '../../../store/search/actions';
+import Sort from '../Sort/component';
 
 const Search = ({query, onInputChange, data, onLoad}) => {
   const handleOnSubmit = (e) => {
@@ -18,7 +19,7 @@ const Search = ({query, onInputChange, data, onLoad}) => {
  
   return (
     <>
-       <form onSubmit={handleOnSubmit}>
+       <form onSubmit={handleOnSubmit} >
         <TextField 
           placeholder='Search'
           value={query}
@@ -28,6 +29,7 @@ const Search = ({query, onInputChange, data, onLoad}) => {
         <IconButton type='submit'>
           <SearchIcon/>
         </IconButton>
+        <Sort/>
       </form>
     </>
   )
