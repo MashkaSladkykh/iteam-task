@@ -3,26 +3,22 @@ import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 
-import { checkApp } from '../../../store/search/actions';
+import { addFavourite, removeFavourite } from '../../../store/search/actions';
 import { selectFav } from '../../../store/search/selectors';
 
-const FavoriteApp = ({id, checkApp, selectFav}) => {
+const FavoriteApp = ({id, addFavourite, removeFavourite}) => {
     const apps = JSON.parse(localStorage.reduxState).apps.data;
 
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-   
-    
 
     const handleChange = e => {
         const res = apps.find(app => id === app.appId)
-        console.log(res)
         if(e.target.checked) {     
-            checkApp(res)
+            addFavourite(res)
         } 
-        if(!e.target.checked && selectFav.includes(res)) {
-            selectFav.filter(app => app != e.target)
+        if(!e.target.checked) {
+            removeFavourite(res)
         }
-        console.log(e.target)
     }
 
     return(
@@ -39,8 +35,15 @@ const mapStateToProps = state => ({
     favApps: selectFav(state)
   })
   
-  const mapDispatchToProps = {
-    checkApp,
+  const mapDispatchToProps = dispatch => {
+    return {
+        addFavourite: index => {
+        dispatch(addFavourite(index));
+        },
+        removeFavourite: index => {
+        dispatch(removeFavourite(index));
+        }
+    };
   }
   
   export default connect(mapStateToProps, mapDispatchToProps)(FavoriteApp);

@@ -1,6 +1,7 @@
-import { REQUEST_APPS, RECEIVE_APPS, SORT_APPS_BY_PRICE, CHECK_APP} from './types';
-import { generateApiSearchUrl, options } from '../../pages/utils';
 import { useEffect } from 'react';
+
+import { REQUEST_APPS, RECEIVE_APPS, FAVOURITE_ADDED, FAVOURITE_REMOVED} from './types';
+import { generateApiSearchUrl, options } from '../../pages/utils';
 
 export const requestApps = (query) => ({
   type: REQUEST_APPS,
@@ -34,13 +35,20 @@ export const getApps = (query) => {
   }
 }
 
-export const sortAppsByPrice = ({price, payload }) => ({
-  type: SORT_APPS_BY_PRICE,
-  price,
-  payload
-})
+export const addFavourite = index => {
+  return {
+    type: FAVOURITE_ADDED,
+    payload: {
+      index: index
+    }
+  };
+};
 
-export const checkApp = (payload) => ({
-  type: CHECK_APP, 
-  payload
-})
+export const removeFavourite = index => {
+  return {
+      type: FAVOURITE_REMOVED,
+      payload: {
+       index: index
+      }
+  };
+};
