@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
-import { REQUEST_APPS, RECEIVE_APPS} from './types';
+import { REQUEST_APPS, RECEIVE_APPS, SORT_APPS_BY_PRICE, CHECK_APP} from './types';
 import { generateApiSearchUrl, options } from '../../pages/utils';
+import { useEffect } from 'react';
 
 export const requestApps = (query) => ({
   type: REQUEST_APPS,
@@ -16,7 +16,6 @@ export const receiveApps = ({status, payload }) => ({
 export const getApps = (query) => {
   return function (dispatch) {
     dispatch(requestApps(query));
-
     // fetch(generateApiSearchUrl(`${query}/page/1`), options)
     //   .then((res) => res.json())
     //   .then((data) => {
@@ -32,6 +31,16 @@ export const getApps = (query) => {
     //     }))
     //     }
     // )
-   
   }
 }
+
+export const sortAppsByPrice = ({price, payload }) => ({
+  type: SORT_APPS_BY_PRICE,
+  price,
+  payload
+})
+
+export const checkApp = (payload) => ({
+  type: CHECK_APP, 
+  payload
+})

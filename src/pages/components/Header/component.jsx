@@ -1,24 +1,27 @@
-import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
-import Favorite from '@mui/icons-material/Favorite';
-
+import IconButton from '@mui/material/IconButton';
 
 import logo from '../../../images/logo.svg';
-import Searching from './Search';
-
 
 const Header = () => {
-    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+    const handleClick = (e) => {
+        e.preventDefault();
+        // redirect to list of favorite
+        console.log('redirect to list of favorite')
+
+    }
     return (
         <>
              <a href="https://store.steampowered.com/">
                 <img src={logo} alt="logo" />
             </a>
-            <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} />
-            <Searching/> 
+                          
+                <IconButton onClick={handleClick}>
+                    <FavoriteBorder  />
+                </IconButton>
+            
         </>
     )
-
 };
 
 export default Header;

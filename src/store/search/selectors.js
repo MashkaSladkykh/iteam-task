@@ -1,1 +1,2 @@
-export const selectSearch = state => state.seacrh;
+export const selectData = state => state.data;
+export const selectFav = state => state.apps.favApps;

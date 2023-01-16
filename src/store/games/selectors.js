@@ -1,1 +1,0 @@
-export const selectGames = state => state.games.games;

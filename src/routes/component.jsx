@@ -1,10 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
-import Games from '../pages/components/Main';
+import { Main } from '../pages/components/Main';
+import Details from '../pages/components/Details';
 
 const GameApp = () => {
   return (
     <Routes>
-      <Route path='/' element={<Games />} />
+      <Route path='/' element={<Main />} />
+      <Route path=':appId' element={<Details />} />
       <Route
         path='*'
         element={

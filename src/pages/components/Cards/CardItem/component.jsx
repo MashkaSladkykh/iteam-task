@@ -5,6 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
+import FavoriteApp from '../../Favorite';
+
 const CardItem = ({ app }) => {
   let {
     appId,
@@ -15,6 +17,7 @@ const CardItem = ({ app }) => {
     reviewSummary,
     price
   } = app;
+  
   return (
     <div>
       <Card sx={{ maxWidth: 345 }}>
@@ -32,8 +35,10 @@ const CardItem = ({ app }) => {
         </Typography>
         </NavLink>
         <Typography variant="body2" color="text.secondary">
-          `${price} date of release ${released}`
+          {price} date of release {released}
         </Typography>
+        <FavoriteApp
+        id={appId}/>
       </CardContent>
     </Card>
     </div>
