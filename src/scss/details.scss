@@ -1,0 +1,25 @@
+@import './variables.scss';
+
+.details {
+    &_poster {
+        min-width: 100%;
+        margin-bottom: 10px;
+    }
+    &_title{
+        text-align: center;
+    }
+    &_info {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+    &_raiting{
+        & b {
+            text-decoration: underline;
+        }
+    }
+    &_summ{
+
+    }
+}

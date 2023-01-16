@@ -14,15 +14,15 @@ const Details = () => {
         <div>
             <Header/>
             <Search/>
-            <div>
-                <img src={detailedApp.imgUrl} alt="poster" />
-                <h1>{detailedApp.title}</h1>
-                <p>
+            <div className='details'>
+                <img src={detailedApp.imgUrl} alt="poster" className='details_poster'/>
+                <h1 className='details_title'>{detailedApp.title}</h1>
+                <p className='details_info'>
                     <span>{detailedApp.released}</span>
                     <span>{detailedApp.price}</span>
                 </p>
-                <p>The raiting is <b>{summ[0]}</b></p>
-                <p>{summ[1]}</p>
+                <p className='details_raiting'>The raiting is <b>{summ[0]}</b></p>
+                <p className='details_summ'>{summ[1]}</p>
             </div>
             <Back/>
         </div>
