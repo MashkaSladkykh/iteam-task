@@ -1,3 +1,4 @@
+import Back from "../Back";
 import CardItem from "../Cards/CardItem";
 import Header from '../Header';
 import Search from '../Search';
@@ -14,6 +15,7 @@ const FavoriteList = () => {
             key={app.appId}
             app={app}
             />)}
+        <Back/>
         </>
     )
 };

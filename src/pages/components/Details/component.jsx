@@ -1,6 +1,5 @@
-import { useParams, NavLink } from 'react-router-dom';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import IconButton from '@mui/material/IconButton';
+import { useParams } from 'react-router-dom';
+import Back from '../Back';
 
 const Details = () => {
     let { appId } = useParams();
@@ -21,12 +20,7 @@ const Details = () => {
                 <p>The raiting is <b>{summ[0]}</b></p>
                 <p>{summ[1]}</p>
             </div>
-            <NavLink to={`/`}>
-                <IconButton>
-                    <ArrowBackIcon/>
-                    Back
-                </IconButton>
-            </NavLink>
+            <Back/>
         </div>
     )
 }
