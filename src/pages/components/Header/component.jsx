@@ -6,8 +6,8 @@ import logo from '../../../images/logo.svg';
 
 const Header = () => {
     return (
-        <>
-             <a href="https://store.steampowered.com/">
+        <div className='header'>
+            <a href="https://store.steampowered.com/">
                 <img src={logo} alt="logo" />
             </a>
             <NavLink to={'favList'}>         
@@ -15,7 +15,7 @@ const Header = () => {
                     <FavoriteBorder  />
                 </IconButton>
             </NavLink>           
-        </>
+        </div>
     )
 };
 
