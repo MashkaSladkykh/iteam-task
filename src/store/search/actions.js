@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { REQUEST_APPS, RECEIVE_APPS, FAVOURITE_ADDED, FAVOURITE_REMOVED} from './types';
+import { REQUEST_APPS, RECEIVE_APPS, FAVOURITE_ADDED, FAVOURITE_REMOVED, SET_SORT_PARAMS} from './types';
 import { generateApiSearchUrl, options } from '../../pages/utils';
 
 export const requestApps = (query) => ({
@@ -49,6 +49,15 @@ export const removeFavourite = index => {
       type: FAVOURITE_REMOVED,
       payload: {
        index: index
+      }
+  };
+};
+
+export const setSortParams = (key) => {
+  return {
+      type: SET_SORT_PARAMS,
+      payload: {
+        sortKey: key
       }
   };
 };

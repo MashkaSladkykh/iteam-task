@@ -1,33 +1,36 @@
-import { useState } from 'react';
+import { useState} from 'react';
+import { connect } from 'react-redux';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { setSortParams } from '../../../store/search/actions';
 
 
-const Sort = () => {
-    const [sort, setSort] = useState('');
-  
-    const handleChange = (event) => {
-      setSort(event.target.value);
-    };
-  
+const Sort = ({data,setSortParams, sortParams}) => {
     return (
         <>
             <InputLabel id="demo-select-small">Sort</InputLabel>
             <Select
                 labelId="demo-select-small"
                 id="demo-select-small"
-                value={sort}
+                value={sortParams}
                 label="Sort"
-                onChange={handleChange}
+                onChange={e => setSortParams(e.target.value)}          
             >
-            <MenuItem value={'price'}>Price</MenuItem>
-            <MenuItem value={'released'}>Release date</MenuItem>
+            <MenuItem value={'price'} >Price</MenuItem>
+            <MenuItem value={'released'} >Release date</MenuItem>
             </Select>
         </>
-
     );
-  }
+  };
 
-  export default Sort;
+const mapStateToProps = (state) => ({
+    data: state.apps.data,
+    sortParams: state.apps.sortParams
+  });
+
+const mapDispatchToProps = dispatch => ({
+    setSortParams: value => dispatch(setSortParams(value)),
+  });
+
+export default connect(mapStateToProps,mapDispatchToProps)(Sort);

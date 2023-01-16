@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
 import Back from '../Back';
+import Header from '../Header';
+import Search from '../Search';
 
 const Details = () => {
     let { appId } = useParams();
@@ -10,6 +12,8 @@ const Details = () => {
     
     return (
         <div>
+            <Header/>
+            <Search/>
             <div>
                 <img src={detailedApp.imgUrl} alt="poster" />
                 <h1>{detailedApp.title}</h1>
