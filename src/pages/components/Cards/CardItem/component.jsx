@@ -19,28 +19,33 @@ const CardItem = ({ app }) => {
   } = app;
   
   return (
-    <div>
-      <Card sx={{ maxWidth: 345 }}>
-      <NavLink to={`appId=${appId}`}>
-        <CardMedia
-          sx={{ height: 140 }}
-          image={imgUrl}
-          title={title}
-        />
-      </NavLink>
-      <CardContent>
+    <div className='card-container'>
+      <Card sx={{ maxWidth: 345 }} className='card'>
         <NavLink to={`appId=${appId}`}>
-          <Typography gutterBottom variant="h5" component="div">
-            {title}
-        </Typography>
+          <CardMedia
+            sx={{ height: 140 }}
+            image={imgUrl}
+            title={title}
+            className='card_img'
+          />
         </NavLink>
-        <Typography variant="body2" color="text.secondary">
-          {price} date of release {released}
-        </Typography>
-        <FavoriteApp
-        id={appId}/>
-      </CardContent>
-    </Card>
+        <CardContent className='card_content'>
+          <NavLink to={`appId=${appId}`} className='card_title'>
+            <Typography gutterBottom variant="h5" component="div" >
+              {title}
+          </Typography>
+          </NavLink>
+          <Typography variant="body2" className='card_released'>
+            {released}
+          </Typography>
+          <div className='card_flex'>
+            <span className='card_price'>{price}</span>
+            <FavoriteApp
+              id={appId}
+            />
+          </div>
+        </CardContent>
+      </Card>
     </div>
   )
 }
