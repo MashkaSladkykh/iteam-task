@@ -7,22 +7,21 @@ import { setSortParams } from '../../../store/search/actions';
 
 
 const Sort = ({data,setSortParams, sortParams}) => {
-    return (
-        <>
-            <InputLabel id="demo-select-small">Sort</InputLabel>
-            <Select
-                labelId="demo-select-small"
-                id="demo-select-small"
-                value={sortParams}
-                label="Sort"
-                onChange={e => setSortParams(e.target.value)}          
-            >
-            <MenuItem value={'price'} >Price</MenuItem>
-            <MenuItem value={'released'} >Release date</MenuItem>
-            </Select>
-        </>
-    );
-  };
+  return (
+    <>
+      <Select
+        labelId="demo-select-small"
+        id="demo-select-small"
+        value={sortParams}
+        onChange={e => setSortParams(e.target.value)}  
+        className='sort'        
+      >
+      <MenuItem value={'price'} >Price</MenuItem>
+      <MenuItem value={'released'} >Release date</MenuItem>
+      </Select>
+    </>
+  );
+};
 
 const mapStateToProps = (state) => ({
     data: state.apps.data,

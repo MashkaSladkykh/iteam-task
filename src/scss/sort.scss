@@ -1,0 +1,10 @@
+@import './variables.scss';
+
+.sort{
+    background-color: $gray;
+    height: 31px;
+    margin-bottom: 20px;
+    & div {
+       color: $white;
+    }
+}
