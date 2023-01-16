@@ -1,0 +1,24 @@
+@import './variables.scss';
+
+form{
+    display: flex;
+    max-width: 306px;
+}
+
+.search{
+    &_input input{
+        max-width: 306px;
+        height: 31px;
+        border-radius: 10px;
+        padding: 0;
+        border-right: none;
+        padding-right: 0;
+        color: inherit;
+        background-color: $gray;
+        border-bottom: none;
+        padding-left: 10px;
+    }
+    &_submit path{
+        color: $gray;
+    }
+}

@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
 import TextField from '@mui/material/TextField';
+import FilledInput from '@mui/material/FilledInput';
+import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -20,15 +22,23 @@ const Search = ({query, onInputChange, data, onLoad}) => {
   return (
     <>
        <form onSubmit={handleOnSubmit} >
-        <TextField 
+        <FilledInput
+          endAdornment={
+          <InputAdornment position="end">
+            <IconButton type='submit' className='search_submit'>
+              <SearchIcon/>
+            </IconButton>
+          </InputAdornment>}
+          aria-describedby="searching-app-field"
+          inputProps={{
+            'aria-label': 'searh',
+          }}
           placeholder='Search'
           value={query}
           onChange={e => onInputChange(e.target.value)}
           onClick={handleOnClick}
+          className='search_input'
         />
-        <IconButton type='submit'>
-          <SearchIcon/>
-        </IconButton>
         <Sort/>
       </form>
     </>
