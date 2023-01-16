@@ -4,6 +4,11 @@
     margin-top: 5px;
     margin-bottom: 7px;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    &_logo {
+        margin-right: 80px;
+    }
+    &_fav path {
+        color: $gray;
+    }
 }
